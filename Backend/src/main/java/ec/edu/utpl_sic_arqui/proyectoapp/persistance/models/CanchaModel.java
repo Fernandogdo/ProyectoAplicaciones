@@ -1,25 +1,29 @@
 package ec.edu.utpl_sic_arqui.proyectoapp.persistance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = CanchaModel.TABLE_NAME)
-public class CanchaModel implements Serializable{
+public class CanchaModel implements Serializable {
+
     public static final String TABLE_NAME = "cancha";
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
-    private EstadoModel estado;
     private float costo_cancha;
-    
-    @OneToMany(mappedBy="cancha", cascade = CascadeType.ALL)
-    private Set<EstablecimientoModel> establecimiento;
 
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private EstadoModel estado;
+
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private EstablecimientoModel establecimiento;
 
     public Long getID() {
         return ID;
@@ -37,11 +41,11 @@ public class CanchaModel implements Serializable{
         this.estado = estado;
     }
 
-    public Set<EstablecimientoModel> getEstablecimiento() {
+    public EstablecimientoModel getEstablecimiento() {
         return establecimiento;
     }
 
-    public void setEstablecimiento(Set<EstablecimientoModel> establecimiento) {
+    public void setEstablecimiento(EstablecimientoModel establecimiento) {
         this.establecimiento = establecimiento;
     }
 
@@ -52,7 +56,6 @@ public class CanchaModel implements Serializable{
     public void setCosto_cancha(float costo_cancha) {
         this.costo_cancha = costo_cancha;
     }
-
 
     private static final long serialVersionUID = 1L;
 }

@@ -17,12 +17,6 @@ public class EstadoModel implements Serializable{
     private Long ID;
     
     private String nombre;
-    
-//    @OneToOne(mappedBy = "estado", cascade = CascadeType.ALL)
-    @NotNull(message="la región no puede ser vacia")
-    @ManyToOne()
-    @JoinColumn(name="establecimiento_id")
-    private EstablecimientoModel establecimiento;
 
     public Long getID() {
         return ID;

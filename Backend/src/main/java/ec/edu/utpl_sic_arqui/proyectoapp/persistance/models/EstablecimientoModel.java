@@ -1,5 +1,6 @@
 package ec.edu.utpl_sic_arqui.proyectoapp.persistance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
@@ -15,24 +16,21 @@ public class EstablecimientoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
-    
+
     private String direccion;
     private String latitud;
     private String longitud;
     private String telefono;
     private String num_canchas;
     private String horario;
-    
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "estado", referencedColumnName = "id")
-   
-    @OneToMany(mappedBy="establecimiento", cascade = CascadeType.ALL)
-    private Set<EstadoModel> estado;
-   
-    @NotNull(message="la región no puede ser vacia")
-    @ManyToOne()
-    @JoinColumn(name="cancha_id")
-    private CanchaModel cancha;
+
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private EstadoModel estado;
+
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CuentaModel cuenta;
 
     public Long getID() {
         return ID;
@@ -42,11 +40,11 @@ public class EstablecimientoModel implements Serializable {
         this.ID = ID;
     }
 
-    public Set<EstadoModel> getEstado() {
+    public EstadoModel getEstado() {
         return estado;
     }
 
-    public void setEstado(Set<EstadoModel> estado) {
+    public void setEstado(EstadoModel estado) {
         this.estado = estado;
     }
 
@@ -96,6 +94,14 @@ public class EstablecimientoModel implements Serializable {
 
     public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public CuentaModel getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(CuentaModel cuenta) {
+        this.cuenta = cuenta;
     }
 
     private static final long serialVersionUID = 1L;

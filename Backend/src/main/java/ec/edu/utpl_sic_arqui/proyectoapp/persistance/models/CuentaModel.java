@@ -19,12 +19,6 @@ public class CuentaModel implements Serializable{
     private String celular;
     private String correo;
     private String contrasenia;
-    
-    @NotNull(message="la región no puede ser vacia")
-    @ManyToOne()
-    @JoinColumn(name="establecimiento_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private EstablecimientoModel establecimiento;
 
     public Long getID() {
         return ID;
@@ -34,16 +28,6 @@ public class CuentaModel implements Serializable{
         this.ID = ID;
     }
 
-    public EstablecimientoModel getEstablecimiento() {
-        return establecimiento;
-    }
-
-    public void setEstablecimiento(EstablecimientoModel establecimiento) {
-        this.establecimiento = establecimiento;
-    }
-
-
-    
     public String getNombres_apellidos() {
         return nombres_apellidos;
     }

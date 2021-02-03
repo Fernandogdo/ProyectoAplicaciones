@@ -1,13 +1,16 @@
 package ec.edu.utpl_sic_arqui.proyectoapp.persistance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = ReservaModel.TABLE_NAME)
-public class ReservaModel implements Serializable{
+public class ReservaModel implements Serializable {
+
     public static final String TABLE_NAME = "reserva";
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,8 +19,18 @@ public class ReservaModel implements Serializable{
     private String hora_llegada;
     private String hora_salida;
     private String valor_cancelar;
+
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CuentaModel cuenta;
+    
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private CanchaModel cancha;
+
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private EstadoModel estado;
 
     public Long getID() {
         return ID;
@@ -57,6 +70,14 @@ public class ReservaModel implements Serializable{
 
     public void setValor_cancelar(String valor_cancelar) {
         this.valor_cancelar = valor_cancelar;
+    }
+
+    public EstadoModel getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoModel estado) {
+        this.estado = estado;
     }
 
     public CuentaModel getCuenta() {
