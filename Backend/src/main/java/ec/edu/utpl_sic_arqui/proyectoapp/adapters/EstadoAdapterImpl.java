@@ -23,7 +23,7 @@ public class EstadoAdapterImpl implements IEstadoAdapter {
     }
 
     @Override
-    public Page<EstadoModel> findAll(Pageable pageable) {
+    public Page<EstadoModel> pagefindAll(Pageable pageable) {
         return null;
     }
 

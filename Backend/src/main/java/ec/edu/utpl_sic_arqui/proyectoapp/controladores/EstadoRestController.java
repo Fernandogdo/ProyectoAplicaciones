@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api")
 public class EstadoRestController {
+    
     @Autowired
     private IEstadoAdapter iEstadoAdapter;
 

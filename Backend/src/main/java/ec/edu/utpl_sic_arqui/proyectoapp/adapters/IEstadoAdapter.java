@@ -9,7 +9,7 @@ public interface IEstadoAdapter {
 
     public List<EstadoModel> findAll();
 
-    public Page<EstadoModel> findAll(Pageable pageable);
+    public Page<EstadoModel> pagefindAll(Pageable pageable);
 
     public EstadoModel findById(Long id);
 
