@@ -22,7 +22,7 @@ public class RegistrarCuenta implements ICuenta {
 
     @Override
     public CuentaModel registrarCuenta(Cuenta cuenta) {
-        System.out.println("--------traza de vrg");
+        System.out.println("--------");
         Cuenta objcuenta = cuenta;
         CuentaModel objCuentaRepo = new CuentaModel();
 
@@ -31,7 +31,7 @@ public class RegistrarCuenta implements ICuenta {
         objCuentaRepo.setNombres_apellidos(objcuenta.getNombres_apellidos());
         objCuentaRepo.setCelular(objcuenta.getCelular());
 
-        System.out.println("-----ssfgsfssffsfsfsfssf" + objCuentaRepo.getNombres_apellidos());
+        System.out.println("-----" + objCuentaRepo.getNombres_apellidos());
         return icuentaAdapter.savet(objCuentaRepo);
     }
 
