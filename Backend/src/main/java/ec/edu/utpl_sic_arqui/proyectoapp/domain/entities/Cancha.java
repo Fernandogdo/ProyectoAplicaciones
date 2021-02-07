@@ -10,33 +10,33 @@ package ec.edu.utpl_sic_arqui.proyectoapp.domain.entities;
  * @author alexa
  */
 public class Cancha {
-   
-    private String disponibilidad;
-    private float costo_cancha;
+    private String numcancha; 
+    private float costocancha;
     private Estado estado;
-    private Establecimiento establecimiento;
 
-    public Cancha(String disponibilidad, float costo_cancha, Estado estado, Establecimiento establecimiento) {
-        this.disponibilidad = disponibilidad;
-        this.costo_cancha = costo_cancha;
+    public Cancha(String numcancha, float costocancha, Estado estado) {
+        this.numcancha = numcancha;
+        this.costocancha = costocancha;
         this.estado = estado;
-        this.establecimiento = establecimiento;
     }
 
-    public String getDisponibilidad() {
-        return disponibilidad;
+    public Cancha() {
     }
 
-    public void setDisponibilidad(String disponibilidad) {
-        this.disponibilidad = disponibilidad;
+    public String getNumcancha() {
+        return numcancha;
     }
 
-    public float getCosto_cancha() {
-        return costo_cancha;
+    public void setNumcancha(String numcancha) {
+        this.numcancha = numcancha;
     }
 
-    public void setCosto_cancha(float costo_cancha) {
-        this.costo_cancha = costo_cancha;
+    public float getCostocancha() {
+        return costocancha;
+    }
+
+    public void setCostocancha(float costocancha) {
+        this.costocancha = costocancha;
     }
 
     public Estado getEstado() {
@@ -47,14 +47,12 @@ public class Cancha {
         this.estado = estado;
     }
 
-    public Establecimiento getEstablecimiento() {
-        return establecimiento;
+    @Override
+    public String toString() {
+        return "Cancha{" + "numcancha=" + numcancha + ", costocancha=" + costocancha + ", estado=" + estado + '}';
     }
 
-    public void setEstablecimiento(Establecimiento establecimiento) {
-        this.establecimiento = establecimiento;
-    }
     
-    
+ 
+
 }
-

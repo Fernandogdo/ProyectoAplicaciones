@@ -9,13 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICuentaDao  extends JpaRepository<CuentaModel, Long>{
-    @Query("from CuentaModel")
-    public List<CuentaModel> findAllCuentas();
+ 
+    @Query("SELECT u FROM CuentaModel u WHERE u.correo = :email")
+    public CuentaModel findBYEmail(String email);
     
-//    public void registrarCuenta(CuentaModel cuenta);   
-//    public void obtenerCuentaId(int id);
-//    public void actualizarCuenta(CuentaModel cuenta);
-//    public void eliminarCuenta(int id);
-//    public void listarCuentas();
 
 }

@@ -15,14 +15,16 @@ public class CanchaModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
+    
     private float costo_cancha;
+    private String num_cancha;
 
     @NotNull(message = "la región no puede ser vacia")
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private EstadoModel estado;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private EstablecimientoModel establecimiento;
 
     public Long getID() {
@@ -31,6 +33,14 @@ public class CanchaModel implements Serializable {
 
     public void setID(Long ID) {
         this.ID = ID;
+    }
+
+    public String getNum_cancha() {
+        return num_cancha;
+    }
+
+    public void setNum_cancha(String num_cancha) {
+        this.num_cancha = num_cancha;
     }
 
     public EstadoModel getEstado() {

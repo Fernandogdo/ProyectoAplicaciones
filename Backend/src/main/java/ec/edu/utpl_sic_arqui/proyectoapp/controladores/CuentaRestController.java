@@ -4,7 +4,7 @@ import java.util.List;
 import ec.edu.utpl_sic_arqui.proyectoapp.adapters.ICuentaAdapter;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.ICuenta;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.entities.Cuenta;
-import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuenta;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaUsuario;
 import ec.edu.utpl_sic_arqui.proyectoapp.persistance.models.CuentaModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +36,35 @@ import org.springframework.stereotype.Component;
 @RestController
 @RequestMapping("/api")
 public class CuentaRestController {
+
     @Autowired
-    private RegistrarCuenta cuentaRT;
-//
-//    @GetMapping("/cuenta")
-//    public List<CuentaModel> listarCuentas() {
-//        return icuentaAdapter.findAll();
-//    }
+    private RegistrarCuentaUsuario cuentaRT;
+
+    @GetMapping("/cuenta/{email}")
+    public ResponseEntity<?> BuscarByEmail(@PathVariable String email) {
+        
+        CuentaModel cuentaModel = null;
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            cuentaModel = cuentaRT.BuscarCuentaID(email);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta en la base de datos");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (cuentaModel == null) {
+            response.put("mensaje", "La cuenta: ".concat(email.toString().concat(" no existe en la base de datos!")));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<CuentaModel>(cuentaModel, HttpStatus.OK);
+    }
 
     @PostMapping("/cuenta")
     public ResponseEntity<?> create(@Valid @RequestBody Cuenta cuenta, BindingResult result) {
-        System.out.println("imprimeindo vrg"+cuenta);
+        
         CuentaModel cuentaModelNew = null;
         Map<String, Object> response = new HashMap<>();
 
@@ -62,7 +80,7 @@ public class CuentaRestController {
         }
 
         try {
-            
+
             cuentaModelNew = cuentaRT.registrarCuenta(cuenta);
         } catch (DataAccessException e) {
             response.put("mensaje", "Error al realizar el insert en la base de datos");

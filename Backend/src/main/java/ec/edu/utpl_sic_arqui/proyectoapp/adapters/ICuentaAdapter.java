@@ -14,12 +14,10 @@ public interface ICuentaAdapter {
     public Page<CuentaModel> pagefindAll(Pageable pageable);
 
     public CuentaModel findById(Long id);
+    
+    public CuentaModel findByEmail(String email);
 
     public CuentaModel savet(CuentaModel cuenta);
 
-//    public void delete(Long id);
-//    public int registrarCuenta(Cuenta cuenta);
-//    public List<CuentaModel> listarCuentas();
-//    public CuentaModel obtenerCuentaID(int id);
 
 }

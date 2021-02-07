@@ -16,6 +16,9 @@ public class Cuenta {
     private String correo;
     private String contrasenia;
 
+    public Cuenta() {
+    }
+
     public Cuenta(String nombres_apellidos, String celular, String correo, String contrasenia) {
         this.nombres_apellidos = nombres_apellidos;
         this.celular = celular;

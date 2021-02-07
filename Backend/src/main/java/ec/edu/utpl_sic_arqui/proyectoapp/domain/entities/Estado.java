@@ -13,6 +13,9 @@ public class Estado {
   
     private String nombre;
 
+    public Estado() {
+    }
+
     public Estado(String nombre) {
         this.nombre = nombre;
     }

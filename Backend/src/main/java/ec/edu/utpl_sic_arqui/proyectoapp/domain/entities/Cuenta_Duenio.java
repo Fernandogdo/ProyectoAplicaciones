@@ -5,22 +5,18 @@
  */
 package ec.edu.utpl_sic_arqui.proyectoapp.domain.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author alexa
  */
-public class Cuenta_Usuario  extends Cuenta{
-    private List<Reserva> reservas = new ArrayList<Reserva> ();
+public class Cuenta_Duenio extends Cuenta{
 
-    public Cuenta_Usuario() {
+    public Cuenta_Duenio() {
     }
 
-    public Cuenta_Usuario(String nombres_apellidos, String celular, String correo, String contrasenia) {
+    
+    public Cuenta_Duenio(String nombres_apellidos, String celular, String correo, String contrasenia) {
         super(nombres_apellidos, celular, correo, contrasenia);
     }
-    
     
 }

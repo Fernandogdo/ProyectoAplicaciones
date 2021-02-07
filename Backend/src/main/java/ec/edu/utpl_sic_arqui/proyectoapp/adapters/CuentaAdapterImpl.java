@@ -2,7 +2,7 @@ package ec.edu.utpl_sic_arqui.proyectoapp.adapters;
 
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.ICuenta;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.entities.Cuenta;
-import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuenta;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaUsuario;
 import java.util.List;
 import ec.edu.utpl_sic_arqui.proyectoapp.persistance.models.CuentaModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 
 @Service("icuentaDao")
 public class CuentaAdapterImpl implements ICuentaAdapter {
@@ -43,14 +42,19 @@ public class CuentaAdapterImpl implements ICuentaAdapter {
     @Transactional
     public CuentaModel findById(Long id) {
 
-        return null;
-
+        return icuentaDao.findById(id).orElse(null);
     }
 
     @Override
     public CuentaModel savet(CuentaModel cuenta) {
-        System.out.println("--------Aqui adapter " + cuenta.getNombres_apellidos());
+        
         return icuentaDao.save(cuenta);
+    }
+
+    @Override
+    public CuentaModel findByEmail(String email) {
+        return icuentaDao.findBYEmail(email);
+
     }
 
 }

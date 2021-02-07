@@ -5,7 +5,9 @@
  */
 package ec.edu.utpl_sic_arqui.proyectoapp.adapters;
 
-import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuenta;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.AgregarCanchas;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaUsuario;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarInformacionEstablecimiento;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,12 +19,32 @@ import org.springframework.context.annotation.Configuration;
 public class BingConfiguration {
 
     @Bean
-    public RegistrarCuenta cuentaRT(ICuentaAdapter icuentaAdapter) {
-        return new RegistrarCuenta(icuentaAdapter);
+    public RegistrarCuentaUsuario cuentaRT(ICuentaAdapter icuentaAdapter) {
+        return new RegistrarCuentaUsuario(icuentaAdapter);
     }
 
     @Bean
     public ICuentaAdapter icuentaAdapter() {
         return new CuentaAdapterImpl();
+    }
+    
+    @Bean
+    public RegistrarInformacionEstablecimiento establecimientoRT(IEstablecimientoAdapter iestablecimientoAdapter) {
+        return new RegistrarInformacionEstablecimiento(iestablecimientoAdapter);
+    }
+
+    @Bean
+    public IEstablecimientoAdapter iestablecimientoAdapter() {
+        return new EstablecimientoAdapterImpl();
+    }
+    
+    @Bean
+    public AgregarCanchas canchaRT(ICanchaAdapter icanchaAdapter) {
+        return new AgregarCanchas(icanchaAdapter);
+    }
+
+    @Bean
+    public ICanchaAdapter icanchaAdapter() {
+        return new CanchaAdapterImpl();
     }
 }

@@ -17,6 +17,7 @@ public class EstablecimientoModel implements Serializable {
     @Column(name = "id")
     private Long ID;
 
+    private String nombre;
     private String direccion;
     private String latitud;
     private String longitud;
@@ -29,7 +30,7 @@ public class EstablecimientoModel implements Serializable {
     private EstadoModel estado;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private CuentaModel cuenta;
 
     public Long getID() {
@@ -38,6 +39,14 @@ public class EstablecimientoModel implements Serializable {
 
     public void setID(Long ID) {
         this.ID = ID;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public EstadoModel getEstado() {
@@ -103,6 +112,8 @@ public class EstablecimientoModel implements Serializable {
     public void setCuenta(CuentaModel cuenta) {
         this.cuenta = cuenta;
     }
+    
+    
 
     private static final long serialVersionUID = 1L;
 }

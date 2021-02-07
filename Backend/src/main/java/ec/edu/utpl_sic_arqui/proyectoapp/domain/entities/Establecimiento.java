@@ -5,6 +5,7 @@
  */
 package ec.edu.utpl_sic_arqui.proyectoapp.domain.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,18 +13,24 @@ import java.util.List;
  *
  * @author alexa
  */
-public class Establecimiento {
-   
-    private String direccion;  
+public class Establecimiento implements Serializable {
+
+    private String nombre;
+    private String direccion;
     private String latitud;
     private String longitud;
     private String telefono;
     private String num_canchas;
     private String horario;
     private Estado estado;
-    private List<Cancha> canchas = new ArrayList<Cancha> ();
+    private Cuenta_Duenio cuenta;
+    private List<Cancha> canchas = new ArrayList<>();
 
-    public Establecimiento(String direccion, String latitud, String longitud, String telefono, String num_canchas, String horario, Estado estado) {
+    public Establecimiento() {
+    }
+
+    public Establecimiento(String nombre, String direccion, String latitud, String longitud, String telefono, String num_canchas, String horario, Estado estado, Cuenta_Duenio cuenta, List<Cancha> canchas) {
+        this.nombre = nombre;
         this.direccion = direccion;
         this.latitud = latitud;
         this.longitud = longitud;
@@ -31,6 +38,16 @@ public class Establecimiento {
         this.num_canchas = num_canchas;
         this.horario = horario;
         this.estado = estado;
+        this.cuenta = cuenta;
+        this.canchas = canchas;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -89,6 +106,14 @@ public class Establecimiento {
         this.estado = estado;
     }
 
+    public Cuenta_Duenio getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta_Duenio cuenta) {
+        this.cuenta = cuenta;
+    }
+
     public List<Cancha> getCanchas() {
         return canchas;
     }
@@ -96,6 +121,12 @@ public class Establecimiento {
     public void setCanchas(List<Cancha> canchas) {
         this.canchas = canchas;
     }
+
+    @Override
+    public String toString() {
+        return "Establecimiento{" + "nombre=" + nombre + ", direccion=" + direccion + ", latitud=" + latitud + ", longitud=" + longitud + ", telefono=" + telefono + ", num_canchas=" + num_canchas + ", horario=" + horario + ", estado=" + estado + ", cuenta=" + cuenta + ", cancha=" + canchas.toString() + '}';
+    }
     
     
+
 }
