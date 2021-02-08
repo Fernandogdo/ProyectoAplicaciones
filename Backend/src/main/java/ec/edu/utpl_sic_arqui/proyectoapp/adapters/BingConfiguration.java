@@ -6,6 +6,7 @@
 package ec.edu.utpl_sic_arqui.proyectoapp.adapters;
 
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.AgregarCanchas;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaDuenio;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaUsuario;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarInformacionEstablecimiento;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,11 @@ public class BingConfiguration {
     @Bean
     public ICuentaAdapter icuentaAdapter() {
         return new CuentaAdapterImpl();
+    }
+    
+    @Bean
+    public RegistrarCuentaDuenio cuentaDRT(ICuentaAdapter icuentaAdapter) {
+        return new RegistrarCuentaDuenio(icuentaAdapter);
     }
     
     @Bean

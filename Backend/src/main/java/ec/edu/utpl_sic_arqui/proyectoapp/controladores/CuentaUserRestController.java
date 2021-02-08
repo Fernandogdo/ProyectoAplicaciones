@@ -36,12 +36,12 @@ import org.springframework.stereotype.Component;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/api")
-public class CuentaRestController {
+public class CuentaUserRestController {
 
     @Autowired
     private RegistrarCuentaUsuario cuentaRT;
 
-    @GetMapping("/cuenta/{email}")
+    @GetMapping("/cuentaUser/{email}")
     public ResponseEntity<?> BuscarByEmail(@PathVariable String email) {
         
         CuentaModel cuentaModel = null;
@@ -63,7 +63,7 @@ public class CuentaRestController {
         return new ResponseEntity<CuentaModel>(cuentaModel, HttpStatus.OK);
     }
 
-    @PostMapping("/cuenta")
+    @PostMapping("/cuentaUser")
     public ResponseEntity<?> create(@Valid @RequestBody Cuenta cuenta, BindingResult result) {
         
         CuentaModel cuentaModelNew = null;
@@ -93,5 +93,7 @@ public class CuentaRestController {
         response.put("estado", cuentaModelNew);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
-
+    
+    
+     
 }
