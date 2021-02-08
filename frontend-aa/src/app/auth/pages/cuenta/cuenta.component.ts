@@ -17,7 +17,7 @@ export class CuentaComponent implements OnInit {
   public cuentaForm = this.fb.group({
     nombres_apellidos: ['Aranda Nelson', Validators.required],
     celular: ['09765434', Validators.required],
-    correo: ['arandach@gmail.com', Validators.required],
+    correo: ['correoh@gmail.com', Validators.required],
     contrasenia: ['1234', Validators.required],
     contrasenia2: ['1234', Validators.required],
   });

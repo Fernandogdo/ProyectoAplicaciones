@@ -41,15 +41,16 @@ export class EstablecimientoComponent implements OnInit {
       icon: 'info',
     });
     Swal.showLoading();
+    const{nombre} = this.establecimientoForm.value
     this.estableService.crearEstablecimiento(this.establecimientoForm.value)
       .subscribe(resp => {
         console.log(resp);
         Swal.close();
-        Swal.fire('Error al crear establecimiento', 'hola', 'success');
+        Swal.fire('Se creo el establecimiento!', nombre , 'success');
       }, (err) => {
         console.log(err);
         Swal.close();
-        Swal.fire('Error al crear establecimiento', err, 'error');
+        Swal.fire('Error al crear establecimiento!', err, 'error');
 
       });
   }

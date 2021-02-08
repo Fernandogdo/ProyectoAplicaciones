@@ -15,7 +15,7 @@ export class Establecimiento {
     public horario: string,
     public estado: Estado,
     public cuenta: Cuenta,
-    public canchas: Cancha,
+    public canchas: Cancha[],
     public id?: string,
   ) { }
 }

@@ -27,8 +27,9 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+//@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/api")
 public class EstadoRestController {
     

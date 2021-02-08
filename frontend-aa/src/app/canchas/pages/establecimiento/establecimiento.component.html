@@ -1,148 +1,80 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-  <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Gestionar Establecimiento</h1>
-  <!-- DataTales Example -->
-  <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Crear Establecimiento</h6>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="p-5">
-            <h3 class="h4 text-gray-900 mb-4">Información Establecimiento</h3>
-            <hr />
-            <form
-              class="user"
-              (ngSubmit)="crearEstablecimiento()"
-              autocomplete="off"
-              [formGroup]="establecimientoForm"
-            >
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="nombre"
-                    placeholder="Ingresar nombre"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="direccion"
-                    placeholder="Ingresar Dirección"
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="password"
-                    class="form-control form-control-user"
-                    id="exampleInputPassword"
-                    placeholder="Password"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <input
-                    type="password"
-                    class="form-control form-control-user"
-                    id="exampleRepeatPassword"
-                    placeholder="Repeat Password"
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="latitud"
-                    placeholder="Ingresar latitud"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="longitud"
-                    placeholder="Ingresar longitud"
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="telefono"
-                    placeholder="Ingresar celular"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="num_canchas"
-                    placeholder="Ingresar el número de canchas"
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="horario"
-                    placeholder="12:12"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <select class="form-control custom-select" formControlName="estadoEsta">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Gestionar Establecimiento</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Crear Establecimiento</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <h3 class="h4 text-gray-900 mb-4">Información Establecimiento</h3>
+                        <hr />
+                        <form class="user" (ngSubmit)="crearEstablecimiento()" autocomplete="off" [formGroup]="establecimientoForm">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" formControlName="nombre" placeholder="Ingresar nombre" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" formControlName="direccion" placeholder="Ingresar Dirección" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" formControlName="latitud" placeholder="Ingresar latitud" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" formControlName="longitud" placeholder="Ingresar longitud" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" formControlName="telefono" placeholder="Ingresar celular" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" formControlName="num_canchas" placeholder="Ingresar el número de canchas" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" formControlName="horario" placeholder="12:12" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control custom-select" formControlName="estadoEsta">
                     <option value="Abierto">Abierto</option>
                     <option value="Cerrado">Cerrado</option>
                   </select>
-                </div>
-              </div>
-              <hr />
-              <h3 class="h4 text-gray-900 mb-4">Información Cancha</h3>
-              <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="costo_cancha"
-                    placeholder="Costo Cancha"
-                  />
-                </div>
-                <div class="col-sm-6">
-                  <input
-                    type="text"
-                    class="form-control form-control-user"
-                    formControlName="num_cancha"
-                    placeholder="Nombre de la cancha"
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-6">
-                  <select class="form-control custom-select" formControlName="estadoCancha">
+                                </div>
+                            </div>
+                            <hr />
+                            <h3 class="h4 text-gray-900 mb-4">Información Cancha</h3>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="text" class="form-control form-control-user" formControlName="costo_cancha" placeholder="Costo Cancha" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control form-control-user" formControlName="num_cancha" placeholder="Nombre de la cancha" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <select class="form-control custom-select" formControlName="estadoCancha">
                     <option value="Disponible">Disponible</option>
                     <option value="Ocupada">Ocupada</option>
                   </select>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary btn-user btn-block">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">
                 Registrar
               </button>
-            </form>
-          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <!-- /.container-fluid -->
