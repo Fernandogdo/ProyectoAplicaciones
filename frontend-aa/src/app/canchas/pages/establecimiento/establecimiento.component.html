@@ -49,27 +49,49 @@
                   </select>
                                 </div>
                             </div>
-                            <hr />
-                            <h3 class="h4 text-gray-900 mb-4">Información Cancha</h3>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" formControlName="costo_cancha" placeholder="Costo Cancha" />
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" formControlName="num_cancha" placeholder="Nombre de la cancha" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <select class="form-control custom-select" formControlName="estadoCancha">
-                    <option value="Disponible">Disponible</option>
-                    <option value="Ocupada">Ocupada</option>
-                  </select>
+                            <div class="col-lg-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">
+                                            Información Cancha
+                                        </h6>
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-primary btn-icon-split" (click)="agregarCanchas()">
+                                        <span class="icon text-white-50">
+                                          <i class="fas fa-plus"></i>
+                                        </span>
+                                        <span class="text">Agregar canchas</span>
+                                      </button>
+                                        </div>
+                                    </div>
+                                    <div formArrayName="canchaG">
+                                        <div class="container mt-3">
+                                            <div class="mb-0" *ngFor="let skill of canchasArr.controls; let i = index">
+                                                <div [formGroupName]="i">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                                            <input type="text" class="form-control form-control-user" formControlName="costocancha" placeholder="Ingresar costo" />
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <input type="text" class="form-control form-control-user" formControlName="numcancha" placeholder="Ingresar nombre" />
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <select class="form-control custom-select" formControlName="estado">
+                                                <option value="Disponible">Disponible</option>
+                                                <option value="Ocupada">Ocupada</option>
+                                              </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                Registrar
-              </button>
+                                Registrar
+                              </button>
                         </form>
                     </div>
                 </div>
@@ -77,4 +99,3 @@
         </div>
     </div>
 </div>
-<!-- /.container-fluid -->

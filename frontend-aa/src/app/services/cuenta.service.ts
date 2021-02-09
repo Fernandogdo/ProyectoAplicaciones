@@ -23,7 +23,7 @@ export class CuentaService {
       .append('Access-Control-Allow-Origin', '*');
 
     const { nombres_apellidos, celular, correo, contrasenia } = data;
-    this.baseUrl = `${this.baseUrl}/cuenta`;
+    this.baseUrl = `${this.baseUrl}/cuentaDuenio`;
     
 
     localStorage.setItem('cuenta', JSON.stringify(data) );

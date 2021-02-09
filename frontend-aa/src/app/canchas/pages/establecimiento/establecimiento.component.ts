@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
@@ -21,16 +21,29 @@ export class EstablecimientoComponent implements OnInit {
     num_canchas: ['2', Validators.required],
     horario: ['12:12', Validators.required],
     estadoEsta: ['Abierto', Validators.required],
-    costo_cancha: ['20', Validators.required],
-    num_cancha: ['Cancha 1', Validators.required],
-    estadoCancha: ['Disponible', Validators.required],
+    // costo_cancha: ['20', Validators.required],
+    // num_cancha: ['Cancha 1', Validators.required],
+    // estadoCancha: ['Disponible', Validators.required],
+    canchaG: this.fb.array([], Validators.required)
   });
+
+
+  get canchasArr() {
+    return this.establecimientoForm.get('canchaG') as FormArray;
+  }
+
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
     private estableService: EstablecimientoService
   ) { }
   ngOnInit(): void {
+  }
+
+  agregarCanchas(): void {
+    this.canchasArr.push(this.newCancha());
+    this.newCancha().reset();
+
   }
 
   crearEstablecimiento(): void {
@@ -53,6 +66,19 @@ export class EstablecimientoComponent implements OnInit {
         Swal.fire('Error al crear establecimiento!', err, 'error');
 
       });
+  }
+
+  public campoEsValido(campo: string): any {
+    return this.establecimientoForm.controls[campo].errors
+      && this.establecimientoForm.controls[campo].touched;
+  }
+
+  private newCancha(): FormGroup {
+    return this.fb.group({
+      costocancha: ['20', Validators.required],
+      numcancha: ['Cancha 1', Validators.required],
+      estado: ['Disponible', Validators.required]
+    });
   }
 
 }

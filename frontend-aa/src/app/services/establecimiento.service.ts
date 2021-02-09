@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,10 +19,9 @@ export class EstablecimientoService {
 
   URL = 'http://localhost:8081/api/establecimiento';
 
-  constructor(private http: HttpClient) {
-    // this.cuentaStorage();
-    
-   }
+  private arrayCanchas: Cancha[] = [];
+
+  constructor(private http: HttpClient) {}
 
   get cuentaStorage(): any {
     return localStorage.getItem('cuenta') || '';
@@ -44,18 +44,25 @@ export class EstablecimientoService {
     const cuentaStorage:any = localStorage.getItem('cuenta') || '';
     const cuentaTraer = JSON.parse(cuentaStorage);
   
+    const { canchaG } = data;
+    
+    canchaG.forEach((element: Cancha) => {
+      const canchaArr = new Cancha(element.numcancha, element.costocancha, element.estado);
+      console.log('CANCHA ONJ', canchaArr);
+      this.arrayCanchas.push(canchaArr);
+    });
 
-    const stateCancha: Estado = new Estado(estadoCancha);
+    // const stateCancha: Estado = new Estado(estadoCancha);
     const stateEstable: Estado = new Estado(estadoEsta);
-    const cancha: Cancha = new Cancha(num_cancha, costo_cancha, stateCancha);
+    // const cancha: Cancha = new Cancha(num_cancha, costo_cancha, stateCancha);
     const cuenta: Cuenta = new Cuenta(cuentaTraer.nombres_apellidos, cuentaTraer.celular, cuentaTraer.correo , cuentaTraer.contrasenia);
     console.log('OBJCUENTA', cuenta);
-    const canchaList: Cancha[]=[];
-    canchaList.push(cancha)
+    // const canchaList: Cancha[]=[];
+    // canchaList.push(cancha)
     const establecimientoNew: Establecimiento =
       new Establecimiento(nombre, direccion,
         latitud, longitud, telefono, num_canchas,
-        horario, stateEstable, cuenta, canchaList
+        horario, stateEstable, cuenta, this.arrayCanchas
       );
 
   
