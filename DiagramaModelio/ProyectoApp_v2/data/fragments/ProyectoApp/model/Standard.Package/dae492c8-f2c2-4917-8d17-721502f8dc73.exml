@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="proyectoapp" version="4">
+  <OBJECT>
+    <ID name="proyectoapp" mc="Standard.Package" uid="dae492c8-f2c2-4917-8d17-721502f8dc73"/>
+    <PID name="ProyectoApp" mc="Standard.Project" uid="6dbe8d6f-9159-4d22-a61b-586a49f92331"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[proyectoapp]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Dominio" mc="Standard.Package" uid="a81271e9-6eb3-4a7c-9018-4cebd5623c87"/>
+        <COMPID name="UI" mc="Standard.Package" uid="0bb1dca9-809b-4ddd-942f-105af41f00de"/>
+        <COMPID name="controladores" mc="Standard.Package" uid="ff99d42a-cb44-4cf1-a1a7-d6ac7e9a6caf"/>
+        <COMPID name="Adaptadores" mc="Standard.Package" uid="0f9ccd77-b539-41e1-8c02-4ff30eaec2d2"/>
+        <COMPID name="Persistence" mc="Standard.Package" uid="49d0f1c3-4889-4052-91b3-16b978bd117a"/>
+        <COMPID name="java" mc="Standard.Package" uid="6dd89933-97b5-47c5-ac3e-41ae4670ad45"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="proyectoapp Class diagram" mc="Standard.ClassDiagram" uid="15f17ffc-01b3-4c48-a97d-9d8516a4aebe"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

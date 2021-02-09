@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Dominio" version="4">
+  <OBJECT>
+    <ID name="Dominio" mc="Standard.Package" uid="a81271e9-6eb3-4a7c-9018-4cebd5623c87"/>
+    <PID name="proyectoapp" mc="Standard.Package" uid="dae492c8-f2c2-4917-8d17-721502f8dc73"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Dominio]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Use Cases" mc="Standard.Package" uid="a74c2c14-def8-4dce-90b0-ae4e921713d0"/>
+        <COMPID name="Entities" mc="Standard.Package" uid="40cd6851-0d3f-448e-ab8c-387ef85aaf8a"/>
+        <COMPID name="ICuenta" mc="Standard.Interface" uid="23ea423d-b95a-4268-b780-07a0ea367d98"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

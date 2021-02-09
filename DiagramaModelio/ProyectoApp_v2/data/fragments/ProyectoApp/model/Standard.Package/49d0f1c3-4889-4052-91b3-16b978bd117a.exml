@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Persistence" version="4">
+  <OBJECT>
+    <ID name="Persistence" mc="Standard.Package" uid="49d0f1c3-4889-4052-91b3-16b978bd117a"/>
+    <PID name="proyectoapp" mc="Standard.Package" uid="dae492c8-f2c2-4917-8d17-721502f8dc73"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Persistence]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="models" mc="Standard.Package" uid="853266ea-e2b3-41d6-a269-2562126214cf"/>
+        <COMPID name="dao" mc="Standard.Package" uid="8158f760-bd60-498d-897d-95de639a4900"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
