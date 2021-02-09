@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EstadoAdapterImpl implements IEstadoAdapter {
+
     @Autowired
     private IEstado estadoDao;
-
 
     @Override
     @Transactional(readOnly = true)
@@ -23,11 +23,13 @@ public class EstadoAdapterImpl implements IEstadoAdapter {
     }
 
     @Override
+    @Transactional
     public Page<EstadoModel> pagefindAll(Pageable pageable) {
         return null;
     }
 
     @Override
+    @Transactional
     public EstadoModel findById(Long id) {
         return null;
     }
@@ -39,23 +41,14 @@ public class EstadoAdapterImpl implements IEstadoAdapter {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
 
     }
 
-//    @Override
-//    public String registrarEstado(EstadoModel estado) {
-//        return null;
-//    }
-//
-//    @Override
-//    public List<EstadoModel> listarEstados() {
-//        return null;
-//    }
-//
-//    @Override
-//    public EstadoModel obtenerEstadoID(int Id) {
-//        return null;
-//    }
+    @Override
+    public EstadoModel findByName(String nombre) {
+        return estadoDao.findBYName(nombre);
+    }
 
 }

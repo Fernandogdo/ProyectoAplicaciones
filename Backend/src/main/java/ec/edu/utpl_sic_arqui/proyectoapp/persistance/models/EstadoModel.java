@@ -16,6 +16,7 @@ public class EstadoModel implements Serializable{
     @Column(name = "id")
     private Long ID;
     
+    @Column(unique=true)
     private String nombre;
 
     public Long getID() {

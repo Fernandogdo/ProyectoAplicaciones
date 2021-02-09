@@ -22,6 +22,9 @@ public class AgregarCanchas {
 
     @Autowired
     private ICanchaAdapter icanchaAdapter;
+    
+    @Autowired
+    private AsignarEstados estadoRT;
 
     @Autowired
     private RegistrarInformacionEstablecimiento establecimientoRT;
@@ -39,9 +42,8 @@ public class AgregarCanchas {
         objcanchaRepo.setNum_cancha(objcancha.getNumcancha());
         objcanchaRepo.setCosto_cancha(objcancha.getCostocancha());
 
-        EstadoModel objestadoRepo = new EstadoModel();
-        objestadoRepo.setNombre(objcancha.getEstado().getNombre());
-        objcanchaRepo.setEstado(objestadoRepo);
+        EstadoModel objestado = estadoRT.BuscarEstadoByName(objcancha.getEstado().getNombre());
+        objcanchaRepo.setEstado(objestado);
 
         EstablecimientoModel repoEstab = establecimientoRT.BuscarEstablecimientoByName(this.tempNombre);
         objcanchaRepo.setEstablecimiento(repoEstab);

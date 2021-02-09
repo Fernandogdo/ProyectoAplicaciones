@@ -15,16 +15,16 @@ public class CanchaModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
-    
+
     private float costo_cancha;
     private String num_cancha;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private EstadoModel estado;
 
-    @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = {"canchas", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private EstablecimientoModel establecimiento;
 
     public Long getID() {

@@ -2,6 +2,7 @@ package ec.edu.utpl_sic_arqui.proyectoapp.persistance.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,8 +17,10 @@ public class EstablecimientoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
-
+    
+    @Column(unique=true)
     private String nombre;
+    
     private String direccion;
     private String latitud;
     private String longitud;
@@ -26,12 +29,19 @@ public class EstablecimientoModel implements Serializable {
     private String horario;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private EstadoModel estado;
 
     @NotNull(message = "la región no puede ser vacia")
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private CuentaModel cuenta;
+
+    @JsonIgnoreProperties(value = {"establecimiento", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "establecimiento", cascade = CascadeType.MERGE)
+    private List<CanchaModel> canchas;
+    
+    
+    
 
     public Long getID() {
         return ID;
@@ -112,8 +122,14 @@ public class EstablecimientoModel implements Serializable {
     public void setCuenta(CuentaModel cuenta) {
         this.cuenta = cuenta;
     }
-    
-    
+
+    public List<CanchaModel> getCanchas() {
+        return canchas;
+    }
+
+    public void setCanchas(List<CanchaModel> canchas) {
+        this.canchas = canchas;
+    }
 
     private static final long serialVersionUID = 1L;
 }

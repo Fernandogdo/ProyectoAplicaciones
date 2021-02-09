@@ -14,6 +14,8 @@ public interface IEstadoAdapter {
     public EstadoModel findById(Long id);
 
     public EstadoModel save(EstadoModel estadoModel);
+    
+    public EstadoModel findByName(String nombre);
 
     public void delete(Long id);
 

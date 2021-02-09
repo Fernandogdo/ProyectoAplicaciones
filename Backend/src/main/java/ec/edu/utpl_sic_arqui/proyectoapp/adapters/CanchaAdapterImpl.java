@@ -35,6 +35,4 @@ public class CanchaAdapterImpl implements ICanchaAdapter {
        return icanchaDao.save(cancha);
     }
     
- 
-
 }

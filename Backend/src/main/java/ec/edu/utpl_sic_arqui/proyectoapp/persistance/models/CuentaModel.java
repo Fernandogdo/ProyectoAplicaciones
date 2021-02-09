@@ -17,6 +17,8 @@ public class CuentaModel implements Serializable{
     private Long ID;
     private String nombres_apellidos;
     private String celular;
+    
+    @Column(unique=true)
     private String correo;
     private String contrasenia;
 

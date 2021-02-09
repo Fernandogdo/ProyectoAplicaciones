@@ -1,6 +1,7 @@
 package ec.edu.utpl_sic_arqui.proyectoapp.controladores;
 
 import ec.edu.utpl_sic_arqui.proyectoapp.adapters.IEstadoAdapter;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.AsignarEstados;
 import ec.edu.utpl_sic_arqui.proyectoapp.persistance.models.EstadoModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +27,21 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
 //@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping("/api")
 public class EstadoRestController {
+
+    @Autowired
+    private IEstadoAdapter iestadoAdapter;
     
     @Autowired
-    private IEstadoAdapter iEstadoAdapter;
+    public AsignarEstados estadoRT;
 
     @GetMapping("/estado")
     public List<EstadoModel> listarEstados() {
-        return iEstadoAdapter.findAll();
+        return iestadoAdapter.findAll();
     }
 
     @PostMapping("/estado")
@@ -59,7 +62,7 @@ public class EstadoRestController {
         }
 
         try {
-            estadoModelNew = iEstadoAdapter.save(estado);
+            estadoModelNew = iestadoAdapter.save(estado);
         } catch (DataAccessException e) {
             response.put("mensaje", "Error al realizar el insert en la base de datos");
             response.put("error", Objects.requireNonNull(e.getMessage()).concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -70,20 +73,26 @@ public class EstadoRestController {
         response.put("estado", estadoModelNew);
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
-//    public EstadoModel listar() {
-//        return null;
-//    }
-//
-//    public String crear(EstadoModel estado) {
-//        return null;
-//    }
-//
-//    public String actualizar(int id, EstadoModel estado) {
-//        return null;
-//    }
-//
-//    public String delete(int id) {
-//        return null;
-//    }
+
+    ResponseEntity<?> BuscarByEmail(@PathVariable String nombre) {
+
+        EstadoModel estadoModel = null;
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            estadoModel = estadoRT.BuscarEstadoByName(nombre);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta en la base de datos");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        if (estadoModel == null) {
+            response.put("mensaje", "El estado ".concat(nombre.toString().concat(" no existe en la base de datos!")));
+            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<EstadoModel>(estadoModel, HttpStatus.OK);
+    }
 
 }
