@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class RegistrarCuentaDuenio implements ICuenta {
 
-     @Autowired
+    @Autowired
     private ICuentaAdapter icuentaAdapter;
   
     public RegistrarCuentaDuenio(ICuentaAdapter icuentaAdapter) {

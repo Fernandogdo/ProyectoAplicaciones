@@ -15,10 +15,14 @@ public class EstadoModel implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long ID;
-    
+
     @Column(unique=true)
     private String nombre;
 
+    public EstadoModel() {
+    }
+
+    
     public Long getID() {
         return ID;
     }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("iestablecimientoDao")
 public class EstablecimientoAdapterImpl implements IEstablecimientoAdapter {
@@ -15,8 +16,9 @@ public class EstablecimientoAdapterImpl implements IEstablecimientoAdapter {
     private IEstablecimientoDao iestablecimentoDao;
     
     @Override
+    @Transactional(readOnly = true)
     public List<EstablecimientoModel> findAll() {
-        return null;
+        return iestablecimentoDao.findAll();
     }
 
     @Override

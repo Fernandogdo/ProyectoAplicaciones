@@ -3,6 +3,7 @@ package ec.edu.utpl_sic_arqui.proyectoapp.controladores;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ec.edu.utpl_sic_arqui.proyectoapp.adapters.IEstablecimientoAdapter;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.entities.Establecimiento;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.MostrarEstadoCanchas;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarInformacionEstablecimiento;
 import ec.edu.utpl_sic_arqui.proyectoapp.persistance.models.EstablecimientoModel;
 import java.util.HashMap;
@@ -27,20 +28,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 //@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RequestMapping("/api")
 public class EstablecimientoRestController {
 
     @Autowired
     public RegistrarInformacionEstablecimiento establecimientoRT;
+    
+    @Autowired
+    public MostrarEstadoCanchas establecimientoDRT;
+    
+    @GetMapping("/establecimiento")
+    public List<EstablecimientoModel> listarEstablecimientosEstados() {
+        return establecimientoDRT.mostrarCanchasEstados();
+    }
+
 
     @PostMapping("/establecimiento")
     public ResponseEntity<?> create(@Valid @RequestBody Establecimiento establecimiento, BindingResult result) {
-     
-        ObjectMapper objectMapper =new ObjectMapper();
+
+        ObjectMapper objectMapper = new ObjectMapper();
         Establecimiento establecimientoTest = objectMapper.convertValue(establecimiento, Establecimiento.class);
         System.out.println("Modificando /// " + establecimientoTest.toString());
-        
+
         EstablecimientoModel establecimientoModelNew = null;
         Map<String, Object> response = new HashMap<>();
 
@@ -91,4 +101,5 @@ public class EstablecimientoRestController {
         return new ResponseEntity<EstablecimientoModel>(establecimientoModel, HttpStatus.OK);
     }
 
+   
 }

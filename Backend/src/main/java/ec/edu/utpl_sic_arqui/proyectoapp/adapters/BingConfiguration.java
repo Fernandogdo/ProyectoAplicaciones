@@ -7,6 +7,7 @@ package ec.edu.utpl_sic_arqui.proyectoapp.adapters;
 
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.AgregarCanchas;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.AsignarEstados;
+import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.MostrarEstadoCanchas;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaDuenio;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarCuentaUsuario;
 import ec.edu.utpl_sic_arqui.proyectoapp.domain.usecases.RegistrarInformacionEstablecimiento;
@@ -64,4 +65,11 @@ public class BingConfiguration {
     public IEstadoAdapter iestadoAdapter() {
         return new EstadoAdapterImpl();
     }
+    
+    
+    @Bean
+    public MostrarEstadoCanchas iestablecimientoDRT(IEstablecimientoAdapter iestablecimientoAdapter) {
+        return new MostrarEstadoCanchas(iestablecimientoAdapter);
+    }
+
 }

@@ -20,7 +20,7 @@ public class CanchaModel implements Serializable {
     private String num_cancha;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private EstadoModel estado;
 
     @JsonIgnoreProperties(value = {"canchas", "hibernateLazyInitializer", "handler"}, allowSetters = true)

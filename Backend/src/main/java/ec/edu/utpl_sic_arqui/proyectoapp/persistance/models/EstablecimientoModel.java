@@ -29,18 +29,20 @@ public class EstablecimientoModel implements Serializable {
     private String horario;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private EstadoModel estado;
 
     @NotNull(message = "la región no puede ser vacia")
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private CuentaModel cuenta;
 
     @JsonIgnoreProperties(value = {"establecimiento", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "establecimiento", cascade = CascadeType.MERGE)
-    private List<CanchaModel> canchas;
-    
-    
+    private List<CanchaModel> canchas ;
+
+    public EstablecimientoModel() {
+        
+    }
     
 
     public Long getID() {
