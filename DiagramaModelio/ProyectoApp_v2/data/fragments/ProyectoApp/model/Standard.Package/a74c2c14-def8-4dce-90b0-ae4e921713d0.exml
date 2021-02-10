@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Use Cases" version="4">
+  <OBJECT>
+    <ID name="Use Cases" mc="Standard.Package" uid="a74c2c14-def8-4dce-90b0-ae4e921713d0"/>
+    <PID name="Dominio" mc="Standard.Package" uid="a81271e9-6eb3-4a7c-9018-4cebd5623c87"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Use Cases]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="RegistrarCuentaUsuario" mc="Standard.Class" uid="f920b230-af0b-4ce6-87c7-0752b4379a76"/>
+        <COMPID name="RegistrarInformacionEstablecimiento" mc="Standard.Class" uid="e6f7ba5a-850f-43aa-9a2c-9bf1b8f07165"/>
+        <COMPID name="VerInformacionUsoCanchas" mc="Standard.Class" uid="83dbc75e-0462-4c86-ab36-6e5bda141655"/>
+        <COMPID name="RegistrarCuentaDuenio" mc="Standard.Class" uid="5dfb111d-4e1c-468f-a380-1d526bb52329"/>
+        <COMPID name="ICalcularPago" mc="Standard.Interface" uid="4d7b72db-0663-475a-9e56-a8668843979c"/>
+        <COMPID name="PagoTiempoEfectivo" mc="Standard.Class" uid="08ee29f3-fa68-42db-8249-cf974d411eb2"/>
+        <COMPID name="CalcularValorAPagar" mc="Standard.Class" uid="8951e3ea-372f-4146-841b-59263ae8f21d"/>
+        <COMPID name="MostrarEstadoCanchas" mc="Standard.Class" uid="35d05a33-a067-4e5f-99ec-5aec5229e53d"/>
+        <COMPID name="RealizarReservas" mc="Standard.Class" uid="9842b06c-b828-4be9-bb3c-76a7d762b0ff"/>
+        <COMPID name="AsignarEstados" mc="Standard.Class" uid="03f8df77-a475-4e74-8105-4a54bfaa945d"/>
+        <COMPID name="AgregarCanchas" mc="Standard.Class" uid="b1523f63-cbde-41c9-9f76-13322c363ed7"/>
+        <COMPID name="VisualizarEstablecimientosDeportivos" mc="Standard.Class" uid="c4a65449-f00c-400a-a00c-4abab7a7bde2"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

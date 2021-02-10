@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="controladores" version="4">
+  <OBJECT>
+    <ID name="controladores" mc="Standard.Package" uid="ff99d42a-cb44-4cf1-a1a7-d6ac7e9a6caf"/>
+    <PID name="proyectoapp" mc="Standard.Package" uid="dae492c8-f2c2-4917-8d17-721502f8dc73"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[controladores]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="CuentaUsuarioRestController" mc="Standard.Class" uid="58ca0d50-7d6b-4e6c-90c0-009e23996b68"/>
+        <COMPID name="EstablecimientoRestController" mc="Standard.Class" uid="cdad9dc3-5ebe-4312-bc38-d6e3c703a632"/>
+        <COMPID name="EstadoRestController" mc="Standard.Class" uid="85328935-bdb4-4c61-a502-46c628f7cfdf"/>
+        <COMPID name="ReservaRestController" mc="Standard.Class" uid="9bcd00c8-6503-46be-9bea-aa6b76b17041"/>
+        <COMPID name="CanchaRestController" mc="Standard.Class" uid="a678ffc0-7942-4490-bc19-795d44fd828c"/>
+        <COMPID name="CuentaDuenioRestController" mc="Standard.Class" uid="2f727fb8-3b4a-452c-931b-b4de30159989"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Adaptadores" version="4">
+  <OBJECT>
+    <ID name="Adaptadores" mc="Standard.Package" uid="0f9ccd77-b539-41e1-8c02-4ff30eaec2d2"/>
+    <PID name="proyectoapp" mc="Standard.Package" uid="dae492c8-f2c2-4917-8d17-721502f8dc73"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Adaptadores]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="IReservaAdapter" mc="Standard.Interface" uid="dc0e05b6-8369-470c-ba89-dd1c02298dba"/>
+        <COMPID name="CuentaAdapterImpl" mc="Standard.Class" uid="2829da5e-cb13-48c9-88b0-ceba707c21cb"/>
+        <COMPID name="ReservaAdapterImpl" mc="Standard.Class" uid="dad0c6da-5906-472e-826e-ea250e711c0f"/>
+        <COMPID name="CanchaAdapterImpl" mc="Standard.Class" uid="d4f21726-a31b-4026-8639-60b420d2b771"/>
+        <COMPID name="IEstablecimientoAdapter" mc="Standard.Interface" uid="a384c645-90d5-459c-814d-0bdf98a5ad22"/>
+        <COMPID name="ICanchaAdapter" mc="Standard.Interface" uid="bea16369-704a-4405-b396-90f77131edbb"/>
+        <COMPID name="EstadoAdapterImpl" mc="Standard.Class" uid="38cc8082-c2f2-4149-afd6-0fb45ec7bca1"/>
+        <COMPID name="EstablecimientoAdapterImpl" mc="Standard.Class" uid="925e2f33-4052-4729-a864-63a53e004687"/>
+        <COMPID name="IEstadoAdapter" mc="Standard.Interface" uid="f4f30a5b-19c3-47fe-b6c6-44f0986b69db"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

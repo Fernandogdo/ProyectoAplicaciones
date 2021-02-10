@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="models" version="4">
+  <OBJECT>
+    <ID name="models" mc="Standard.Package" uid="853266ea-e2b3-41d6-a269-2562126214cf"/>
+    <PID name="Persistence" mc="Standard.Package" uid="49d0f1c3-4889-4052-91b3-16b978bd117a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[models]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="CuentaModel" mc="Standard.Class" uid="bb37dcf6-0227-4264-9e23-9637c6ade7af"/>
+        <COMPID name="EstablecimientoModel" mc="Standard.Class" uid="e93a775e-f2d2-40d7-9f7f-97054daf6b54"/>
+        <COMPID name="ReservaModel" mc="Standard.Class" uid="e38dc5ba-515d-405d-b016-c28e79eb798e"/>
+        <COMPID name="EstadoModel" mc="Standard.Class" uid="35b57619-82ef-4a8d-956d-af0d0e690078"/>
+        <COMPID name="CanchaModel" mc="Standard.Class" uid="d23cc739-3c81-4bcb-b1d7-3115f03f88a0"/>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID name="JavaPackage" mc="Infrastructure.Stereotype" uid="01ec23a8-0000-0126-0000-000000000000"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
