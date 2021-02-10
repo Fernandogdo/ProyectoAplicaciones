@@ -27,7 +27,9 @@ public class RegistrarInformacionEstablecimiento {
     private AsignarEstados estadoRT;
 
     public RegistrarInformacionEstablecimiento(IEstablecimientoAdapter iestablecimientoAdapter) {
+        
         this.iestablecimientoAdapter = iestablecimientoAdapter;
+        
     }
 
     public EstablecimientoModel registrarInfoEstablecimiento(Establecimiento establecimiento) {
@@ -47,7 +49,7 @@ public class RegistrarInformacionEstablecimiento {
 
         EstadoModel objestado = estadoRT.BuscarEstadoByName(objestablecimiento.getEstado().getNombre());
         CuentaModel cuentaRepo = cuentaRT.BuscarCuentaID(objestablecimiento.getCuenta().getCorreo());
-        System.out.println("El estado es test "+ objestado.getNombre());
+        
         objestablecimientoRepo.setEstado(objestado);
         objestablecimientoRepo.setCuenta(cuentaRepo);
         
@@ -59,17 +61,15 @@ public class RegistrarInformacionEstablecimiento {
             EstadoModel objestadoTemp = estadoRT.BuscarEstadoByName(objestablecimiento.getCanchas().get(i).getEstado().getNombre());
             
             can.setEstado(objestadoTemp);
-            System.out.println("vale vrg esto "+objestadoTemp.getNombre());
+           
             canchaM.add(can);
         }
-        
-        System.out.println("vale vrg esto "+ canchaM.get(0).getNum_cancha());
         
         objestablecimientoRepo.setCanchas(canchaM);
 
         EstablecimientoModel establecimientoSave = iestablecimientoAdapter.save(objestablecimientoRepo);
         
-        System.out.println("Pasa x aui-----------------------------");
+       
 
         canchaRT.setnombreEstablecimento(objestablecimiento.getNombre());
 
